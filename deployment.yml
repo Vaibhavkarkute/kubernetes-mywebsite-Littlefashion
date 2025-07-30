@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mywebsite
+  namespace: mywebsite
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: mywebsite
+  template:
+    metadata:
+      labels:
+        app: mywebsite
+    spec:
+      containers:
+      - name: mywebsite
+        image: vaibhavkarkute007/apache-website:latest
+        ports:
+        - containerPort: 80
